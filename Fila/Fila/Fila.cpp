@@ -88,12 +88,33 @@ void insere()
 	cin >> novo->valor;
 	novo->prox = NULL;
 
+	if (inicio == NULL) {
+		inicio = novo;
+		fim = novo;
+	}
+	else {
+		fim->prox = novo;
+		fim = novo;
+	}
+	
 
 }
 
 void remove()
 {
+	if (inicio == NULL)
+	{
+		cout << "Fila vazia." << endl;
+		return;
+	}
+	
+	NO* aux = inicio;
+	inicio = inicio->prox;
 
+	if (inicio == NULL) {
+		fim = NULL;
+	}
+	free(aux);
 
 
 }
